@@ -1,5 +1,7 @@
 (ns cljs-react-navigation.re-frame
-  (:require [cljs-react-navigation.base :as base]
+  (:require [cljs-react-navigation.base 
+             :refer [addNavigationHelpers]
+             :as base]
             [cljs-react-navigation.reagent :as reagent]
             [reagent.core :as r]
             [re-frame.core :refer [subscribe dispatch dispatch-sync reg-event-db trim-v reg-sub]]))
@@ -65,7 +67,7 @@
         .-router
         (as-> router
             (.getStateForAction router
-                                (.getActionForPathAndParams router (name key)))))))
+                                (.getActionForRouteName router (name key)))))))
 
 (def nil-fn (fn [_]))
 
